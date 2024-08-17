@@ -1,35 +1,45 @@
 # Fitness Tools API
 
-## Descripción
+**Fitness Tools API** es una API para gestionar equipos de ejercicio usando **Express** y **MongoDB**. Soporta operaciones CRUD y traducciones en varios idiomas. Ideal para aplicaciones que necesitan manejar inventarios de equipos de fitness.
 
-API para el proyecto Fitness, construida con Express y MongoDB. Esta API permite manejar equipos de ejercicio con sus traducciones en varios idiomas.
+## Características
 
-## Estructura del Proyecto
+- CRUD para equipos y lenguajes
+- Soporte para múltiples idiomas
+- Validación de datos
+- Documentación Swagger
+
+## Tecnologías
+
+- **Node.js** con **Express**
+- **MongoDB** para la base de datos
+- **Mongoose** para la modelación de datos
+- **Swagger** para la documentación API
+- **Nodemon** para el reinicio automático del servidor
+
 
 La estructura del proyecto es la siguiente:
 
 ``` lua
-fitness-project-api/
-│
+fitness-tools-api/
 ├── config/
-│   └── database.js        # Configuración de conexión a MongoDB
-│
+│   └── database.js
 ├── controllers/
-│   └── equipment.js       # Controladores para manejar las operaciones CRUD de equipos
-│
+│   ├── equipment.js
+│   └── language.js
 ├── models/
-│   └── equipment.js       # Definición del modelo de datos de equipo con Mongoose
-│
+│   ├── equipment.js
+│   └── language.js
 ├── routes/
-│   └── equipment.js       # Rutas para las operaciones CRUD de equipos
-│
-├── swagger.js             # Configuración de Swagger para la documentación de la API
-│
-├── .env                   # Variables de entorno (incluye URI de MongoDB)
-│
-├── package.json           # Dependencias del proyecto y scripts
-│
-└── server.js              # Configuración y arranque del servidor Express
+│   ├── equipment.js
+│   └── language.js
+├── swagger/
+│   └── swagger.js
+├── .env
+├── package.json
+├── README.md
+└── server.js
+
 
 ```
 
@@ -49,7 +59,7 @@ fitness-project-api/
 
 3. Configura las variables de entorno en el archivo `.env`. Usa la URI de conexión a MongoDB adecuada:
     ```dotenv
-    MONGODB_URI=mongodb://localhost:27017/ProjectFitnessDB
+    MONGO_URI=tu_uri_de_mongodb
     ```
 
 4. Inicia el servidor:
@@ -59,11 +69,19 @@ fitness-project-api/
 
 ## Rutas
 
-- `GET /api/equipments` - Obtiene todos los equipos.
-- `GET /api/equipments/:id` - Obtiene un equipo por su ID.
-- `POST /api/equipments` - Crea un nuevo equipo.
-- `PUT /api/equipments/:id` - Actualiza un equipo existente.
-- `DELETE /api/equipments/:id` - Elimina un equipo por su ID.
+> Languages
+- `GET /api/languages`: Obtener todos los lenguajes.
+- `GET /api/languages/:id`: Obtener un lenguaje por ID.
+- `POST /api/languages`: Crear un nuevo lenguaje.
+- `PUT /api/languages/:id`: Actualizar un lenguaje por ID.
+- `DELETE /api/languages/:id`: Eliminar un lenguaje por ID.
+
+> Equipments
+- `GET /api/equipments`: Obtener todos los equipos.
+- `GET /api/equipments/:id`: Obtener un equipo por ID.
+- `POST /api/equipments`: Crear un nuevo equipo.
+- `PUT /api/equipments/:id`: Actualizar un equipo por ID.
+- `DELETE /api/equipments/:id`: Eliminar un equipo por ID.
 
 ## Documentación
 
